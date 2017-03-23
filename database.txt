@@ -1,0 +1,73 @@
+SELECT * FROM USER_MASTER;
+
+select count(*) from USER_MASTER where USERID='Sur100' and USERPASSWORD='Sur@123' and usertype='Manager'
+
+update USER_MASTER set usertype='ADMIN' where USERID='Roh100'
+select * from asset
+
+create sequence ASSET_ID_SEQ
+
+SELECT ASSET_ID_SEQ.NEXTVAL from dual
+
+SELECT * FROM USERs;
+
+
+create table User_Master(UserId VARCHAR2(6), 
+UserName VARCHAR2(15),
+UserPassword VARCHAR2(50),
+UserType VARCHAR2(10));
+
+create table Department(Dept_ID number primary key , Dept_Name VARCHAR2(50));
+
+create table Employee(Empno Number primary key,Ename Varchar2(25),job Varchar2(50),mgr number,
+hiredate DATE, Dept_ID number REFERENCES Department(Dept_ID));
+
+drop table Employee;
+
+select * from EMPLOYEE
+select * from ASSET
+select * from Asset_Allocation
+
+create table Asset(AssetId Number primary key,
+AssetName Varchar2(25),
+AssetDes Varchar2(25),
+Quantity Number,
+Status Varchar2(15))
+
+create table Asset_Allocation(AllocationId Number primary key, 
+AssetId Number REFERENCES Asset(AssetId),
+Empno Number REFERENCES Employee(Empno),
+Allocation_date DATE,
+Release_date DATE);
+
+create table Request(Reqid number,
+mgr number,
+Empno number REFERENCES Employee(Empno),
+AssetId number REFERENCES Asset(AssetId), 
+Quantity number ,
+Status varchar2(25),
+Release_date DATE );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
